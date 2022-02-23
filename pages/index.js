@@ -7,6 +7,32 @@ import { useState } from "react";
 
 export default function Home() {
   const [user, setUser] = useState(null);
+
+  const octocat = {
+    login: "octocat",
+    avatar_url: "https://avatars.githubusercontent.com/u/583231?v=4",
+    html_url: "https://github.com/octocat",
+    followers_url: "https://api.github.com/users/octocat/followers",
+    following_url:
+      "https://api.github.com/users/octocat/following{/other_user}",
+    subscriptions_url: "https://api.github.com/users/octocat/subscriptions",
+    organizations_url: "https://api.github.com/users/octocat/orgs",
+    repos_url: "https://api.github.com/users/octocat/repos",
+    name: "The Octocat",
+    company: "@github",
+    blog: "https://github.blog",
+    location: "San Francisco",
+    email: "Not Available",
+    hireable: "Not Available",
+    bio: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.",
+    twitter_username: "Not Available",
+    public_repos: 8,
+    public_gists: 8,
+    followers: 4995,
+    following: 9,
+    created_at: "2011-01-25T18:44:36Z",
+  };
+
   return (
     <div>
       <Head>
@@ -15,7 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="mx-6">
+      <main className="mt-7 mx-6">
         <header className="flex justify-between ">
           <h1 className="font-bold text-xl">devfinder</h1>
           <div className="flex content-center">
@@ -28,10 +54,12 @@ export default function Home() {
             />
           </div>
         </header>
-        <UserContext.Provider value={{ user, setUser }}>
-          <SearchBar />
-          <User />
-        </UserContext.Provider>
+        <section className="mt-9">
+          <UserContext.Provider value={{ octocat, user, setUser }}>
+            <SearchBar />
+            <User />
+          </UserContext.Provider>
+        </section>
       </main>
 
       {/* <footer>
